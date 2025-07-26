@@ -5,57 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Coming Soon - Cure Axis Pharmaceuticals</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5faff;
-      color: #1a2b4c;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      background: linear-gradient(to bottom right, #0f4c81, #39b48e); /* Blue-Green Gradient */
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       text-align: center;
     }
-
     .container {
       max-width: 600px;
-      padding: 20px;
+      padding: 2rem;
+      animation: slideUp 1s ease-out;
     }
-
-    img {
+    .logo {
       max-width: 200px;
       margin-bottom: 30px;
+      animation: zoomIn 1s ease-in-out;
     }
-
     h1 {
       font-size: 2.5rem;
-      color: #1a2b4c;
-      margin-bottom: 10px;
+      margin-bottom: 1rem;
     }
-
     p {
-      font-size: 1.1rem;
-      color: #3d4f65;
-      margin-bottom: 30px;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
 
-    .highlight {
-      color: #1abc9c; /* greenish tone from logo */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .countdown div {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1rem;
+      border-radius: 12px;
+      min-width: 70px;
+    }
+    .countdown span {
+      font-size: 2rem;
+      font-weight: bold;
+      display: block;
+    }
+    small {
+      font-size: 0.8rem;
     }
 
-    .footer {
-      font-size: 0.9rem;
-      color: #6c7a89;
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    .delay { animation-delay: 0.5s; }
+    .delay-2 { animation-delay: 1s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="17871031-298d-49f0-859f-3ebfb136b14f.png" alt="Cure Axis Pharmaceuticals Logo" />
-    <h1>Coming Soon</h1>
-    <p>Our website is under construction.<br/>We’re working hard to bring something <span class="highlight">innovative and excellent</span>.</p>
-    <p class="footer">© 2025 Cure Axis Pharmaceuticals</p>
+    <img src="17871031-298d-49f0-859f-3ebfb136b14f.png" alt="Cure Axis Pharmaceuticals Logo" class="logo" />
+    <h1 class="fade-in">We're Launching Soon</h1>
+    <p class="fade-in delay">Cure Axis Pharmaceuticals — Committed for Excellence</p>
+
+    <div class="countdown fade-in delay-2">
+      <div><span id="days">00</span><small>Days</small></div>
+      <div><span id="hours">00</span><small>Hours</small></div>
+      <div><span id="minutes">00</span><small>Minutes</small></div>
+      <div><span id="seconds">00</span><small>Seconds</small></div>
+    </div>
   </div>
+
+  <script>
+    const launchDate = new Date("2025-08-15T00:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      document.getElementById("days").innerText = days.toString().padStart(2, '0');
+      document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.querySelector(".countdown").innerHTML = "<h2>We're Live Now!</h2>";
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
