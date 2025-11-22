@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /setup.js
+
+Sitemap: https://www.cureaxispharma.com/sitemap.xml

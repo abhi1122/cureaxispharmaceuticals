@@ -1,0 +1,304 @@
+/* Products Page Styles */
+
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #162561;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #fff;
+}
+
+/* Company Logo */
+.company-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.company-logo:hover {
+  animation: logoPulse 0.6s ease-in-out;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  }
+  50% {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4));
+  }
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Focus Styles for Accessibility */
+.product-card:focus-within {
+  outline: 3px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.back-button:focus {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.products-header {
+  text-align: center;
+  padding: 80px 20px 40px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.products-header h1 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.products-header p {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 300;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.back-button {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 40px 60px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.product-box {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+}
+
+.product-box-1 {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+}
+
+.product-box-2 {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.product-box-3 {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+}
+
+.product-box-4 {
+  background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+}
+
+.product-icon {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  border: 3px solid rgba(255,255,255,0.3);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.product-icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+}
+
+.product-box h2 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.product-type {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 5px;
+}
+
+.product-info {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.composition {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.indications {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.badge-1 {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+}
+
+.badge-2 {
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(51, 65, 85, 0.4);
+}
+
+.badge-3 {
+  background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+}
+
+.badge-4 {
+  background: linear-gradient(135deg, #134e4a 0%, #14b8a6 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(20, 184, 166, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .products-container {
+    grid-template-columns: 1fr;
+    padding: 30px 20px 60px;
+    gap: 20px;
+  }
+  
+  .products-header {
+    padding: 60px 20px 30px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .products-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
